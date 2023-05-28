@@ -16,6 +16,9 @@ class OrderPremade(models.Model):
     street = models.CharField(max_length=255, null=False)
     glasses = models.ForeignKey(PremadeGlasses, on_delete=models.CASCADE, null=False)
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} ({self.phone})"
+
 
 class OrderCustom(models.Model):
     first_name = models.CharField(max_length=255, null=False)
@@ -28,3 +31,6 @@ class OrderCustom(models.Model):
     material_color = models.ForeignKey(MaterialColor, on_delete=models.CASCADE, null=False)
     lens = models.ForeignKey(Lens, on_delete=models.CASCADE, null=False)
     lens_color = models.ForeignKey(LensColor, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} ({self.phone})"
