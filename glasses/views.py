@@ -2,9 +2,9 @@ from django.shortcuts import render
 from rest_framework import viewsets, mixins
 from rest_framework.viewsets import GenericViewSet
 
-from glasses.models import MaterialColor, Material, Frame, Lens, LensColor
+from glasses.models import MaterialColor, Material, Frame, Lens, LensColor, PremadeGlasses
 from glasses.serializers import MaterialColorSerializer, MaterialSerializer, FrameSerializer, LensSerializer, \
-    LensColorSerializer
+    LensColorSerializer, PremadeGlassesSerializer
 
 
 class MaterialColorViewSet(viewsets.ModelViewSet):
@@ -30,3 +30,8 @@ class LensViewSet(viewsets.ModelViewSet):
 class LensColorViewSet(viewsets.ModelViewSet):
     queryset = LensColor.objects.all()
     serializer_class = LensColorSerializer
+
+
+class PremadeGlassesViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, GenericViewSet):
+    queryset = PremadeGlasses.objects.all()
+    serializer_class = PremadeGlassesSerializer

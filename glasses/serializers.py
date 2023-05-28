@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from glasses.models import Frame, MaterialColor, Material, Lens, LensColor
+from glasses.models import Frame, MaterialColor, Material, Lens, LensColor, PremadeGlasses
 
 
 class MaterialColorSerializer(serializers.ModelSerializer):
@@ -67,3 +67,9 @@ class FrameSerializer(serializers.ModelSerializer):
             "frame_lenses",
         ]
 
+
+class PremadeGlassesSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PremadeGlasses
+        fields = "__all__"
