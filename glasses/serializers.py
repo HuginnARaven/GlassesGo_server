@@ -66,3 +66,4 @@ class FrameSerializer(serializers.ModelSerializer):
             "frame_materials",
             "frame_lenses",
         ]
+

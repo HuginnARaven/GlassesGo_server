@@ -50,3 +50,17 @@ class MaterialColor(models.Model):
     
     def __str__(self):
         return f"{self.name}"
+
+
+class PremadeGlasses(models.Model):
+    name = models.CharField(max_length=255, null=False)
+    price = models.FloatField(null=False)
+    photo_url = models.CharField(max_length=255, null=False)
+    manufacturer = models.CharField(max_length=255, null=False)
+
+    def __str__(self):
+        return f"{self.name} ({self.manufacturer})"
+
+
+
+
