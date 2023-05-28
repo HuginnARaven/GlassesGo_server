@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets, mixins, filters
 from rest_framework.viewsets import GenericViewSet
 
 from glasses.models import MaterialColor, Material, Frame, Lens, LensColor, PremadeGlasses
@@ -35,3 +35,6 @@ class LensColorViewSet(viewsets.ModelViewSet):
 class PremadeGlassesViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, GenericViewSet):
     queryset = PremadeGlasses.objects.all()
     serializer_class = PremadeGlassesSerializer
+
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'manufacturer']
